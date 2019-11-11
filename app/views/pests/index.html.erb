@@ -1,0 +1,9 @@
+<h1> These are <%= @pests.first.user.username %>'s Pests </h1>
+<p> <% @pests.each do |p| %> </p>
+    <%= p.name %><br>
+    <%= p.species %><br>
+    <%= p.color %><br>
+    <%= p.home %><br>
+    <% end %>
+
+
