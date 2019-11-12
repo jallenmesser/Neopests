@@ -15,6 +15,6 @@
     <%= f.label :color %>:
     <%= f.text_field :color %>
     <br>
-    <%= f.hidden_field :user_id, :value => "3"  %>
+    <%= f.hidden_field :user_id, :value => @user.id  %>
     <%= f.submit%>
 <% end %>

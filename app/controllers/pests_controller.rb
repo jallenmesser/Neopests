@@ -8,6 +8,7 @@ class PestsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @pest = Pest.new
   end
 
