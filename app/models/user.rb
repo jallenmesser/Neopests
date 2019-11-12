@@ -1,3 +1,4 @@
 class User < ApplicationRecord
-    has_many :pests
+    has_many :pests, dependent: :nullify
+
 end
