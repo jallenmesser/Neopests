@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :pests 
   end
+
+  get '/welcome', to: 'welcome#index', as: 'welcome' 
+
   # # User Routes
   # get 'users'
   # get 'users/show'

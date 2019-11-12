@@ -1,15 +1,15 @@
 <h1>Create A New User</h1>
 
-<%= form_with model: @user do |f| %>
+<%= form_with local: true, model: @user do |f| %>
     
     <% f.label :username %>
-    <p>Choose a Username:</p>
+    Choose a Username:
     <%= f.text_field :username %>
     <br>
-    <%= f.label :password %> 
+    <%= f.label :password %>:
     <%= f.text_field :password %>
     <br>
-    <%= f.label :email %>
+    <%= f.label :email %>:
     <%= f.text_field :email %>
     <%= f.submit%>
 <% end %>

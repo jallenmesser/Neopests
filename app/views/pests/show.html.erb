@@ -1,2 +1,8 @@
-<h1>Pests#show</h1>
-<p>Find me in app/views/pests/show.html.erb</p>
+<h1>All About <%= @pest.name %></h1>
+
+<p> Given Neopest Name: <%= @pest.name %> </p>
+<p> Pest Species: <%= @pest.species %> </p>
+<p> Pest Home: <%= @pest.home %> </p>
+<p> Pest Color: <%= @pest.color %> </p>
+
+ <%= link_to "Customize #{@pest.name}", edit_user_pest_path(@pest.user_id, @pest.id) %>

@@ -1,2 +1,17 @@
-<h1>Pests#edit</h1>
-<p>Find me in app/views/pests/edit.html.erb</p>
+<h1>Customize <%= @pest.name %> </h1>
+
+<%= form_with url: user_pest_path, local: true, model: @pest do |f| %>
+
+
+<%= f.hidden_field :name, :value => @pest.name  %>
+<%= f.hidden_field :species, :value => @pest.species %>
+<%= f.label :home %>:
+<%= f.text_field :home %>
+<br>
+<%= f.label :color %>:
+<%= f.text_field :color %>
+<br>
+<%= f.hidden_field :user_id, :value => @pest.user_id %>
+<%= f.submit%>
+<% end %>
+

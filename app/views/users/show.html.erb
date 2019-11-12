@@ -3,3 +3,9 @@
 <p> Username: <%= @user.username %> </p><br>
 <p> Email: <%= @user.email %> </p><br>
 <p> Your Pet Is: <%= @user.pests.first.name %> </p>
+
+
+
+<%= link_to "Edit My Account", edit_user_path(@user) %><br>
+<%= link_to "Delete My Account", user_path(@user), method: "delete" %><br>
+<%= link_to "Home", welcome_path %>

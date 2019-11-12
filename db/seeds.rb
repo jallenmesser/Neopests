@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all 
+Pest.destroy_all 
 
 puts "creating seeds"
 user1 = User.find_or_create_by(username: "Ritricia", password: "Cans4Lyfe", email: "ratricia@gcan.com")

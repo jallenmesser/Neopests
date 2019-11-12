@@ -1,2 +1,20 @@
-<h1>Pests#new</h1>
-<p>Find me in app/views/pests/new.html.erb</p>
+<h1>Create a New Neopest!</h1>
+
+<%= form_with url: user_pests_path, local: true, model: @pest do |f| %>
+    
+    <% f.label :name %>
+    Choose a pest name:
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :species %>:
+    <%= f.text_field :species %>
+    <br>
+    <%= f.label :home %>:
+    <%= f.text_field :home %>
+    <br>
+    <%= f.label :color %>:
+    <%= f.text_field :color %>
+    <br>
+    <%= f.hidden_field :user_id, :value => "3"  %>
+    <%= f.submit%>
+<% end %>
