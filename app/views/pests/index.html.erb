@@ -1,11 +1,11 @@
 <h1> These are <%= @user.username %>'s Pests </h1>
 
 <p> <% @user.pests.each do |p| %> </p>
-    <%= p.name %><br>
+    <%= link_to "#{p.name}", user_pest_path(@user.id, p.id)%><br>
     <%= p.species %><br>
     <%= p.color %><br>
     <%= p.home %><br>
-    <% end %>
+<% end %>
 
 
 

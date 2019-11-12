@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    #needs to be user params
     @user = User.create(params[:id])
     redirect_to new_user_pest_path(@user)
   end
