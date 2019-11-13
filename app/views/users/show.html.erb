@@ -4,6 +4,7 @@
 <p> Email: <%= @user.email %> </p><br>
 
 
+<%= link_to "View My Pests", user_pests_path(@user.id) %><br>
 <%= link_to "Edit My Account", edit_user_path(@user) %><br>
 <%= link_to "Delete My Account", user_path(@user), method: "delete" %><br>
 <%= link_to "Home", welcome_path %>
