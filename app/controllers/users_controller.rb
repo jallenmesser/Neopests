@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
+    @pests = @user.pests
   end
 
   def new
@@ -27,6 +29,13 @@ class UsersController < ApplicationController
     @user.destroy 
     redirect_to new_user_path
   end
+
+  # def primary_pest_id
+  #   @user = User.find(params[:primary_pest_id])
+  # end 
+
+
+  private 
 
   def user_params
     params.require(:user).permit(:username, :password, :email)

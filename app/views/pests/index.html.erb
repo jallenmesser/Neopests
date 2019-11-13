@@ -2,6 +2,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:800&display=swap" rel="stylesheet">
 </head>
 
+<<<<<<< HEAD
 
 <body>
     <nav>
@@ -44,4 +45,12 @@
     
 </body>
 
+<%  if @user.primary_pest_id == nil %>
+<p>You have no primary pests assigned. Please add primary pests.</p>
+<%  else %> 
+   <% primary_pest = @user.pests.find do |p| %> 
+     <%  p.id == @user.primary_pest_id %>
+     <% end %>
+    <%= primary_pest.name %>
+<% end %>
 
