@@ -1,0 +1,52 @@
+h1 {
+    color: green;
+}
+
+p {
+    color: pink;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: rgb(99, 99, 99);
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+  }
+
+  a {
+      color: white
+  }
+
+  main {
+    margin-top: 50px;
+
+  }
+
+  .logo-size{
+      max-height: 50px;
+  }
+
+  .row {
+    display: flex;
+  }
+  
+  .pest-column {
+    flex: 25%;
+    margin: 20px;
+    padding: 50px;
+  }
+
+  .main-column {
+    flex: 75%;
+    margin: 20px;
+    padding: 50px;
+  }
+
+  .pest-size{
+      max-width: 25vw;
+  }
