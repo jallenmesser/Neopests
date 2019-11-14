@@ -1,17 +1,40 @@
-<h1>Create A New User</h1>
+<main>
+        <div class="row">
+            <div class="pest-column" style="background-color:#aaa;">
+                <%= image_tag "welcome_bubble", class: "pest-size"%>
+                <%= image_tag "raccoon_#{rand(1..13)}", class: "pest-size"%>
 
-<%= form_with local: true, model: @user do |f| %>
-    
-    <% f.label :username %>
-    Choose a Username:
-    <%= f.text_field :username %>
-    <br>
-    <%= f.label :password %>:
-    <%= f.text_field :password %>
-    <br>
-    <%= f.label :email %>:
-    <%= f.text_field :email %>
-    <br>
-    <%= f.hidden_field :primary_pest_id, :value => nil %>
-    <%= f.submit%>
-<% end %>
+            </div>
+            <div class="main-column" style="background-color:#bbb;">
+            <h1>Create A New User</h1>
+
+                <% if flash[:errors]%>
+                    <% flash[:errors].each do |message|%>
+                        <p><%=message%></p>
+                    <% end%>
+                <%end%>
+                
+                <%= form_with local: true, model: @user do |f| %>
+                    
+                    <% f.label :username %>
+                    Choose a Username:
+                    <%= f.text_field :username %>
+                    <br>
+                    <%= f.label :password %>:
+                    <%= f.password_field :password %>
+                    <br>
+                    <%= f.label :password_confirmation %>:
+                    <%= f.password_field :password_confirmation %>
+                    <br>
+                    <%= f.label :email %>:
+                    <%= f.text_field :email %>
+                    <br>
+                    <%= f.hidden_field :primary_pest_id, :value => nil %>
+                    <%= f.submit%>
+                <% end %>
+            </div>
+        </div>
+    </main>
+
+
+

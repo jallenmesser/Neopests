@@ -1,8 +1,35 @@
-<h1>All About <%= @pest.name %></h1>
+<main>
+<div class="row">
+    <div class="pest-column" style="background-color:#aaa;">
+        <h1>Primary Pest</h1>
+        <%  if @user.primary_pest_id == nil %>
+            <p>You have no primary pests assigned. Please add primary pests.</p>
+        <%  else %> 
+            <% primary_pest = @user.pests.find do |p| %> 
+                <%  p.id == @user.primary_pest_id %>
+                <% end %>
+        <%= primary_pest.name %>
+        <%= image_tag "#{primary_pest.species}_#{primary_pest.color}", class: "pest-size"%>
+        <% end %>
 
-<p> Given Neopest Name: <%= @pest.name %> </p>
-<p> Pest Species: <%= @pest.species %> </p>
-<p> Pest Home: <%= @pest.home %> </p>
-<p> Pest Color: <%= @pest.color %> </p>
+    </div>
+    <div class="main-column" style="background-color:#bbb;">
+         <h1>All About <%= @pest.name %></h1>
+         <%= image_tag "#{@pest.species}_#{@pest.color}", class: "pest-size"%>
+         <p> Given Neopest Name: <%= @pest.name %> </p>
+         <p> Pest Species: <%= @pest.species %> </p>
+         <p> Pest Home: <%= @pest.home %> </p>
+         <p> Pest Color: <%= @pest.color %> </p>
 
- <%= link_to "Customize #{@pest.name}", edit_user_pest_path(@pest.user_id, @pest.id) %>
+         <%= link_to "Customize #{@pest.name}", edit_user_pest_path(@pest.user_id, @pest.id) %>
+         <%= button_to "Abandon Pest", { action: "abandon", id: @pest.id },
+         method: :patch, data: { confirm: "Are you sure?" } %>
+         <%= button_to "Make Primary", { action: "primary", user_id: @pest.user_id, id: @pest.id },
+         method: :patch, data: { confirm: "Are you sure?" } %>
+    </div>
+</div>
+</main>
+
+
+
+

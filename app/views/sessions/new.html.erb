@@ -1,0 +1,30 @@
+<main>
+        <div class="row">
+            <div class="pest-column" style="background-color:#aaa;">
+                <h2>Welcome to Neopests</h2>
+                
+                <%= image_tag "raccoon_#{rand(1..13)}", class: "pest-size"%>
+
+            </div>
+            <div class="main-column" style="background-color:#bbb;">
+                <h1> Please Login </h1>
+                <% if flash[:alert]%>
+                    <% flash[:alert].each do |message|%>
+                        <p><%=message%></p>
+                    <% end%>
+                <%end%>
+
+                <%= form_tag sessions_path do %>
+                    <%= label_tag "Username"%>
+                    <%= text_field_tag :username%>
+                    <br>
+                    <%= label_tag "Password"%>
+                    <%= password_field_tag :password%>
+                    <br>
+                    <%= submit_tag "Sign In"%>
+                <%end%>
+            </div>
+        </div>
+    </main>
+
+

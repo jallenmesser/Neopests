@@ -1,21 +1,37 @@
-<h1> Edit My Account</h1>
+<main>
+        <div class="row">
+            <div class="pest-column" style="background-color:#aaa;">
+                <%= image_tag "welcome_bubble", class: "pest-size"%>
+                <%= image_tag "raccoon_#{rand(1..13)}", class: "pest-size"%>
 
-<%= form_with local: true, model: @user do |f| %>
-    
-    <% f.label :username %>
-    Change Username:
-    <%= f.text_field :username %>
-    <br>
-    <% f.label :email %>
-    Change Email:
-    <%= f.text_field :email %>
-    <br>
-    <% f.label :password %>
-    Change Password
-    <%= f.text_field :password %>
-    <%= f.submit%>
-<% end %>
+            </div>
+            <div class="main-column" style="background-color:#bbb;">
+            <h1> Edit My Account</h1>
+
+            <%= form_with local: true, model: @user do |f| %>
+                
+                <% f.label :username %>
+                Change Username:
+                <%= f.text_field :username %>
+                <br>
+                <% f.label :email %>
+                Change Email:
+                <%= f.text_field :email %>
+                <br>
+                <% f.label :password %>
+                Change Password
+                <%= f.text_field :password %>
+                <%= f.submit%>
+            <% end %>
+            
+            
+            <%= link_to "Delete My Account" %> <br>
+            <%= link_to "Home", welcome_path %>
+            </div>
+        </div>
+    </main>
 
 
-<%= link_to "Delete My Account" %> <br>
-<%= link_to "Home", welcome_path %>
+
+
+

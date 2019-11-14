@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   get '/adoptions', to: 'adoptions#index', as: 'adoptions'
   patch '/users/:user_id/pests/:id/abandon', to: 'pests#abandon', as: 'abandon'
+  patch '/users/:user_id/pests/:id/primary', to: 'pests#primary', as: 'primary'
+  patch '/users/:user_id/pests/:id/adopt', to: 'pests#adopt', as: 'adopt'
 
+
+  get "/login", to: 'sessions#new', as: 'login'
+  post "sessions", to: 'sessions#create', as: 'sessions'
+  delete "sessions", to: 'sessions#destroy', as: 'clear_session'
   # # User Routes
   # get 'users'
   # get 'users/show'

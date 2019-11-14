@@ -4,19 +4,14 @@
 
 <body>
     <nav>
-        <%= image_tag "Logo.png", class: "logo-size"%>
-        <%= link_to "Home", welcome_path(@user) %>
-        <%= link_to "Pests", user_pests_path(@user.id) %>
-        <%= link_to "Adopt", adoptions_path(@user) %>
-        <a href="#">Shop</a>
-        <a href="#">Play</a>
+    
 
     </nav>
 
     <main>
         <div class="row">
             <div class="pest-column" style="background-color:#aaa;">
-                <h2>Primary Pest</h2>
+                <h1>Primary Pest</h1>
                 <%  if @user.primary_pest_id == nil %>
                     <p>You have no primary pests assigned. Please add primary pests.</p>
                 <%  else %> 
@@ -30,15 +25,18 @@
             </div>
             <div class="main-column" style="background-color:#bbb;">
             <h1> These are <%= @user.username %>'s Pests </h1>
-                <% @user.pests.each do |p| %> </p>
-                    <%= image_tag "#{p.species}_#{p.color}", class: "pest-size"%>
-                    <h1><%= link_to "#{p.name}", user_pest_path(@user.id, p.id)%><br></p>
-                    <h1><%= p.species %><br></h1>
-                    <h1><%= p.color %><br></h1>
-                    <h1><%= p.home %><br></h1>
-                    <%= button_to "Abandon Pest", { action: "abandon", id: p.id },
-                                method: :patch, data: { confirm: "Are you sure?" } %>
-                <% end %>
+            <%= link_to "New Pest", new_user_pest_path %>
+                <% if @user.pests == [] %>
+                    <p> You have no pests! Create one now!</p>
+                <%else%>
+                    <% @user.pests.each do |p| %> </p>
+                        <%= image_tag "#{p.species}_#{p.color}", class: "pest-size"%>
+                        <h1><%= link_to "#{p.name}", user_pest_path(@user.id, p.id)%><br></p>
+                        <h1>Home: <%= p.home %><br></h1>
+                        <%= button_to "Abandon Pest", { action: "abandon", id: p.id },
+                                    method: :patch, data: { confirm: "Are you sure?" } %>
+                    <% end %>
+                <%end%>
             </div>
         </div>
     </main>

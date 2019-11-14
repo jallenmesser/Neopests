@@ -1,1 +1,17 @@
-<h1>Welcome to Neopests!<h1>
+<main>
+        <div class="row">
+            <div class="pest-column" style="background-color:#aaa;">
+                <%= image_tag "welcome_bubble", class: "pest-size"%>
+                <%= image_tag "raccoon_#{rand(1..13)}", class: "pest-size"%>
+
+            </div>
+            <div class="main-column" style="background-color:#bbb;">
+                <h1>Welcome to Neopests!<h1>
+                <p> Have you ever wanted to own your own NYC pest? Well now is you chance. With Neopests, we make is easy for you to find the pest of your dreams. Please login to get the ball rolllllllllllin</p>
+                <% if !logged_in? %>
+                    <%= link_to "Login", login_path %>
+                    <%= link_to "Create User", new_user_path%>
+                <% end%>
+            </div>
+        </div>
+    </main>

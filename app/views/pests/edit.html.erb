@@ -1,17 +1,46 @@
-<h1>Customize <%= @pest.name %> </h1>
+<main>
+<div class="row">
+    <div class="pest-column" style="background-color:#aaa;">
+        <h1>Primary Pest</h1>
+        <%  if @user.primary_pest_id == nil %>
+            <p>You have no primary pests assigned. Please add primary pests.</p>
+        <%  else %> 
+            <% primary_pest = @user.pests.find do |p| %> 
+                <%  p.id == @user.primary_pest_id %>
+                <% end %>
+        <%= primary_pest.name %>
+        <%= image_tag "#{primary_pest.species}_#{primary_pest.color}", class: "pest-size"%>
+        <% end %>
 
-<%= form_with url: user_pest_path, local: true, model: @pest do |f| %>
+    </div>
+    <div class="main-column" style="background-color:#bbb;">
+        <h1>Customize <%= @pest.name %> </h1>
+
+        <%= form_with url: user_pest_path, local: true, model: @pest do |f| %>
 
 
-<%= f.hidden_field :name, :value => @pest.name  %>
-<%= f.hidden_field :species, :value => @pest.species %>
-<%= f.label :home %>:
-<%= f.text_field :home %>
-<br>
-<%= f.label :color %>:
-<%= f.text_field :color %>
-<br>
-<%= f.hidden_field :user_id, :value => @pest.user_id %>
-<%= f.submit%>
-<% end %>
+        <%= f.hidden_field :name, :value => @pest.name  %>
+        <%= f.hidden_field :species, :value => @pest.species %>
+        <%= f.label :home %>:
+        <%= f.text_field :home %>
+        <br>
+        <%= f.label :color %>:    
+        <%= f.radio_button :color, 'red', :checked => true %> 
+        <%= label :color, 'Red' %>
+        <%= f.radio_button :color, 'blue' %> 
+        <%= label :color, 'Blue' %>
+        <%= f.radio_button :color, 'yellow' %> 
+        <%= label :color, 'Yellow' %>
+        <%= f.radio_button :color, 'green' %> 
+        <%= label :color, 'Green' %>
+        <br>
+        <%= f.hidden_field :user_id, :value => @pest.user_id %>
+        <%= f.submit%>
+        <% end %>
+    </div>
+</div>
+</main>
+
+
+
 
