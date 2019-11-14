@@ -17,22 +17,27 @@
         <div class="row">
             <div class="pest-column" style="background-color:#aaa;">
                 <h2>Primary Pest</h2>
-                <%= image_tag "squirrel_yellow.png", class: "pest-size"%>
-                <p>Some text..</p>
-                <p>Some text..</p>
-                <p>Some text..</p>
-                <p>Some text..</p>
-                <p>Some text..</p>
+                <%  if @user.primary_pest_id == nil %>
+                    <p>You have no primary pests assigned. Please add primary pests.</p>
+                <%  else %> 
+                    <% primary_pest = @user.pests.find do |p| %> 
+                        <%  p.id == @user.primary_pest_id %>
+                        <% end %>
+                <%= primary_pest.name %>
+                <%= image_tag "#{primary_pest.species}_#{primary_pest.color}", class: "pest-size"%>
+                <% end %>
 
             </div>
             <div class="main-column" style="background-color:#bbb;">
+            <h1> These are <%= @user.username %>'s Pests </h1>
                 <% @user.pests.each do |p| %> </p>
-                    <h1> These are <%= @user.username %>'s Pests </h1>
+                    <%= image_tag "#{p.species}_#{p.color}", class: "pest-size"%>
                     <h1><%= link_to "#{p.name}", user_pest_path(@user.id, p.id)%><br></p>
                     <h1><%= p.species %><br></h1>
                     <h1><%= p.color %><br></h1>
                     <h1><%= p.home %><br></h1>
-                    <%= image_tag "#{p.species}_#{p.color}", class: "pest-size"%>
+                    <%= button_to "Abandon Pest", { action: "abandon", id: p.id },
+                                method: :patch, data: { confirm: "Are you sure?" } %>
                 <% end %>
             </div>
         </div>
@@ -43,12 +48,5 @@
     
 </body>
 
-<%  if @user.primary_pest_id == nil %>
-<p>You have no primary pests assigned. Please add primary pests.</p>
-<%  else %> 
-   <% primary_pest = @user.pests.find do |p| %> 
-     <%  p.id == @user.primary_pest_id %>
-     <% end %>
-    <%= primary_pest.name %>
-<% end %>
+
 

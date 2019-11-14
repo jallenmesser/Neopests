@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/welcome', to: 'welcome#index', as: 'welcome' 
 
   get '/adoptions', to: 'adoptions#index', as: 'adoptions'
+  patch '/users/:user_id/pests/:id/abandon', to: 'pests#abandon', as: 'abandon'
 
   # # User Routes
   # get 'users'

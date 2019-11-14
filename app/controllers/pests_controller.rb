@@ -27,6 +27,13 @@ class PestsController < ApplicationController
     redirect_to user_pest_path(@pest.user_id, @pest.id)
   end
 
+  def abandon
+    @pest = Pest.find(params[:id])
+    byebug
+    @pest.update(user_id: nil)
+    redirect_to adoptions_path
+  end
+
 
   private
 
