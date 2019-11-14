@@ -5,9 +5,9 @@
 <body>
     <nav>
         <%= image_tag "Logo.png", class: "logo-size"%>
-        <a href="#">Home</a>
-        <a href="#">Pests</a>
-        <a href="#">Adopt</a>
+        <%= link_to "Home", welcome_path(@user) %>
+        <%= link_to "Pests", user_pests_path(@user.id) %>
+        <%= link_to "Adopt", adoptions_path(@user) %>
         <a href="#">Shop</a>
         <a href="#">Play</a>
 
