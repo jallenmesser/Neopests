@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'welcome#index', as: 'welcome' 
 
-  get '/adoptions', to: 'adoptions#index', as: 'adoption'
+  get '/adoptions', to: 'adoptions#index', as: 'adoptions'
 
   # # User Routes
   # get 'users'
