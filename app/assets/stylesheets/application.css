@@ -50,3 +50,10 @@ nav {
   .pest-size{
       max-width: 25vw;
   }
+
+  /* L added bc body text was hiding under nav bar - we can either put here or under nav */
+  /* added font-family here for */
+  body { 
+    padding-top: 25px; 
+    font-family: "Montserrat", "Avenir";
+  }
