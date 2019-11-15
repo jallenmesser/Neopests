@@ -10,7 +10,8 @@
 
     <main>
         <div class="row">
-            <div class="pest-column" style="background-color:#aaa;">
+            <div class="pest-column">
+            
                 <h1>Primary Pest</h1>
                 <%  if @user.primary_pest_id == nil %>
                     <p>You have no primary pests assigned. Please add primary pests.</p>
@@ -18,21 +19,23 @@
                     <% primary_pest = @user.pests.find do |p| %> 
                         <%  p.id == @user.primary_pest_id %>
                         <% end %>
-                <%= primary_pest.name %>
+                
                 <%= image_tag "#{primary_pest.species}_#{primary_pest.color}", class: "pest-size"%>
+                <h2><%= primary_pest.name %></h2>
                 <% end %>
 
             </div>
-            <div class="main-column" style="background-color:#bbb;">
+            <div class="main-column">
+            
             <h1> These are <%= @user.username %>'s Pests </h1>
-            <%= link_to "New Pest", new_user_pest_path %>
+            <h2><%= link_to "New Pest", new_user_pest_path %></h2>
                 <% if @user.pests == [] %>
                     <p> You have no pests! Create one now!</p>
                 <%else%>
                     <% @user.pests.each do |p| %> </p>
                         <%= image_tag "#{p.species}_#{p.color}", class: "pest-size"%>
-                        <h1><%= link_to "#{p.name}", user_pest_path(@user.id, p.id)%><br></p>
-                        <h1>Home: <%= p.home %><br></h1>
+                        <h2><%= link_to "#{p.name}", user_pest_path(@user.id, p.id)%><br></h2>
+                        <h2>Home: <%= p.home %><br></h2>
                         <%= button_to "Abandon Pest", { action: "abandon", id: p.id },
                                     method: :patch, data: { confirm: "Are you sure?" } %>
                     <% end %>

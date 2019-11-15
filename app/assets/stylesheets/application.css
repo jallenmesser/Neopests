@@ -1,5 +1,12 @@
 h1 {
-    color: #;
+    color: grey;
+    border-bottom: 5px solid grey;
+    text-shadow: 2px 2px pink;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: pink;
 }
 
 p {
@@ -11,7 +18,7 @@ nav {
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: rgb(99, 99, 99);
+    background-color: white;
     display: flex;
     justify-content: space-around;
     font-family: 'Montserrat', sans-serif;
@@ -19,7 +26,7 @@ nav {
   }
 
   a {
-      color: white
+      color: grey;
   }
 
   main {
@@ -39,12 +46,15 @@ nav {
     flex: 25%;
     margin: 20px;
     padding: 50px;
+    background-color: white;
   }
+  
 
   .main-column {
     flex: 75%;
     margin: 20px;
     padding: 50px;
+    background-color: white;
   }
 
   .pest-size{
@@ -56,4 +66,5 @@ nav {
   body { 
     padding-top: 25px; 
     font-family: "Montserrat", "Avenir";
+    background-color: pink;
   }

@@ -1,6 +1,6 @@
 <main>
 <div class="row">
-    <div class="pest-column" style="background-color:#aaa;">
+    <div class="pest-column">
         <h1>Primary Pest</h1>
         <%  if @user.primary_pest_id == nil %>
             <p>You have no primary pests assigned. Please add primary pests.</p>
@@ -8,12 +8,13 @@
             <% primary_pest = @user.pests.find do |p| %> 
                 <%  p.id == @user.primary_pest_id %>
                 <% end %>
-        <%= primary_pest.name %>
+        
         <%= image_tag "#{primary_pest.species}_#{primary_pest.color}", class: "pest-size"%>
+        <h2><%= primary_pest.name %></h2>
         <% end %>
 
     </div>
-    <div class="main-column" style="background-color:#bbb;">
+    <div class="main-column">
     <h1>Create a New Neopest!</h1>
 
     <%= form_with url: user_pests_path, local: true, model: @pest do |f| %>
