@@ -1,0 +1,78 @@
+<main>
+    <div class="row">
+        <div class="pest-column">
+        <h1><%= @user.username%>'s Crusts: <%= User.find(session[:user_id]).crusts%></h1>
+            <h1>Primary Pest</h1>
+            <%  if @user.primary_pest_id == nil %>
+                <p>You have no primary pests assigned. Please add primary pests.</p>
+            <%  else %> 
+                <% primary_pest = @user.pests.find do |p| %> 
+                    <%  p.id == @user.primary_pest_id %>
+                    <% end %>
+            
+                <%= image_tag "#{primary_pest.species}_#{primary_pest.color}", class: "pest-size"%>
+                <h2><%= primary_pest.name %></h2>
+                <br>
+                
+            <% end %>
+
+        </div>
+        <div class="main-column">
+            <h1> Welcome to PestCo</h1>
+            <h2> It is where the pests go! </h2>
+            <h3>Orange Paintbrush</h3>
+            <%= image_tag "Orange_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Orange", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "orange"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+            <br>
+            <h3>Purple Paintbrush</h3>
+            <%= image_tag "Purple_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Purple", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "purple"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Checkered Paintbrush</h3>
+            <%= image_tag "Checkered_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Checkered", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "checkered"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Dots Paintbrush</h3>
+            <%= image_tag "Dots_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Dots", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "dots"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Fall Paintbrush</h3>
+            <%= image_tag "Fall_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Fall", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "fall"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Normal Paintbrush</h3>
+            <%= image_tag "Normal_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Normal", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "normal"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Rainbow Paintbrush</h3>
+            <%= image_tag "Rainbow_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Rainbow", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "rainbow"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Splats Paintbrush</h3>
+            <%= image_tag "Splats_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Splats", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "splats"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+           <br>
+            <h3>Waves Paintbrush</h3>
+            <%= image_tag "Waves_Paintbrush", class: "paintbrush-size"%>
+            <h3> 100 Crusts</h3>
+            <%= button_to "Change Pest Waves", { action: "purchase", id: @user.id, crust_amount: 100, pest_id: @user.primary_pest_id, color: "waves"},
+           method: :patch, data: { confirm: "Are you sure you want to paint your pet?" } %>
+        </div>
+    </div>
+</main>

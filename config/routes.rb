@@ -2,8 +2,18 @@ Rails.application.routes.draw do
   resources :users do
     resources :pests 
   end
-
+  
+  #welcome routes
   get '/welcome', to: 'welcome#index', as: 'welcome' 
+
+
+  #play routes
+  get '/play', to: 'games#play', as: 'play'
+  patch '/add_crusts/:id/:crust_amount', to: 'games#add_crusts', as: 'add_crusts'
+
+  #shop routes
+  get '/shop', to: 'shops#shop', as: 'shop'
+  patch '/purchase/:id/:crust_amount', to: 'shops#purchase', as: 'purchase'
 
   get '/adoptions', to: 'adoptions#index', as: 'adoptions'
   patch '/users/:user_id/pests/:id/abandon', to: 'pests#abandon', as: 'abandon'

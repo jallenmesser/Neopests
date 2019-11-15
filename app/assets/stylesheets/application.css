@@ -9,6 +9,10 @@ h2 {
     color: pink;
 }
 
+h3 {
+  color: gray;
+}
+
 p {
     color: pink;
 }
@@ -60,6 +64,10 @@ nav {
   .pest-size{
       max-width: 25vw;
   }
+
+  .paintbrush-size{
+    max-width: 10vw;
+}
 
   /* L added bc body text was hiding under nav bar - we can either put here or under nav */
   /* added font-family here for */

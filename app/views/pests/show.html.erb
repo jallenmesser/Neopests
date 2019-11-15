@@ -1,6 +1,7 @@
 <main>
 <div class="row">
     <div class="pest-column">
+    <h1><%= @user.username%>'s Crusts: <%= User.find(session[:user_id]).crusts%></h1>
         <h1>Primary Pest</h1>
         <%  if @user.primary_pest_id == nil %>
             <p>You have no primary pests assigned. Please add primary pests.</p>

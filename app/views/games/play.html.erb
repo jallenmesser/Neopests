@@ -18,19 +18,12 @@
 
         </div>
         <div class="main-column">
-            <h1> Adoption Agency </h1>
-            <% @pests.each do |pest| %>
-                <h2><%=pest.name%></h2>
-                <%= image_tag "#{pest.species}_#{pest.color}", class: "pest-size"%>
-                <%= button_to "Adopt #{pest.name}", adopt_path(session[:user_id], pest.id), method: :patch %>
-            <% end %>
+            <h1> Welcome to the Pizza Dumpster</h1>
+            <h2> Are you hungry? Do you need some crusts to buy thangs? Well you are in the right place!</h2>
+            <%= button_to "Yes", { action: "add_crusts", id: @user.id, crust_amount: rand(10..100) },
+            method: :patch, data: { confirm: "Crusts have been added!" } %>
         </div>
     </div>
 </main>
-
-
-
-
-
 
 

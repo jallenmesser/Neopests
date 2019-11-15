@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <%= favicon_link_tag 'Characters_Rainbow_Paintbrush.png' %>
+    <%= favicon_link_tag 'Rainbow_Paintbrush.png' %>
 
     <link rel="stylesheet" href="./assets/stylesheets/layout.css">
 
@@ -22,17 +22,18 @@
 
     <nav>
         <%= image_tag "Logo.png", class: "logo-size"%>
-        <%= link_to "Home", welcome_path(@user) %>
+        <%= link_to "Home", welcome_path %>
         <%= link_to "Pests", user_pests_path(session[:user_id] || "1") %>
         <%= link_to "Adopt", adoptions_path(@user) %>
-        <a href="#">Shop</a>
-        <a href="#">Play</a>
+        <%= link_to "Shop", shop_path %>
+        <%= link_to "Play", play_path %>
         <%= link_to "Account", user_path(session[:user_id] || "1") %>
         <% if logged_in? %>
           <%= link_to "Logout", sessions_path, method: :delete %>
         <% else %>
           <%= link_to "Login", login_path %>
         <% end %>
+        
     </nav>
     <main>
     
